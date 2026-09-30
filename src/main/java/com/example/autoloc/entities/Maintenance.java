@@ -16,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Maintenance {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMaintenance;
@@ -28,4 +29,10 @@ public class Maintenance {
 
     @Column(length = 255)
     private String description;
+
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_vehicule", nullable = false)
+    private Vehicule vehicule;
+
 }

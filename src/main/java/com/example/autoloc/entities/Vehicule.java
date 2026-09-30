@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "vehicule")
@@ -15,6 +16,11 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Vehicule {
+    @ManyToMany
+    Set<Equipement> Equipements;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Agence agence;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

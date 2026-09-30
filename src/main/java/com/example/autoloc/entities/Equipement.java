@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "equipement")
 @Getter
@@ -13,6 +15,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Equipement {
+
+    @ManyToMany(mappedBy = "Equipements")
+    Set<Vehicule> vehicules;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
